@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const uploadZone = document.getElementById('uploadZone');
   const fileInput = document.getElementById('fileInput');
   const filesList = document.getElementById('filesList');
+  const filesEmptyState = document.getElementById('filesEmptyState');
   const toast = document.getElementById('toast');
 
   // Set UI
   roomIdDisplay.textContent = roomId;
+  document.title = `Room ${roomId} | Sharing Zone`;
   if (isCreator) {
     closeRoomBtn.classList.remove('hidden');
   }
@@ -158,6 +160,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       </a>
     `;
     filesList.appendChild(div);
+    if (filesEmptyState) {
+      filesEmptyState.classList.add('hidden');
+    }
   };
 
   const loadFiles = async () => {
@@ -166,7 +171,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       const files = await res.json();
       if (res.ok) {
         filesList.innerHTML = '';
+        if (filesEmptyState) {
+          filesList.appendChild(filesEmptyState);
+        }
         files.forEach(appendFile);
+        if (filesEmptyState) {
+          filesEmptyState.classList.toggle('hidden', files.length > 0);
+        }
       }
     } catch (err) {
       console.error('Failed to load files', err);
@@ -246,10 +257,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // --- Room Controls ---
-  roomIdBadge.addEventListener('click', () => {
+  const copyRoomId = () => {
     navigator.clipboard.writeText(roomId).then(() => {
       showToast('Room ID copied to clipboard!', false);
     });
+  };
+
+  roomIdBadge.addEventListener('click', copyRoomId);
+  roomIdBadge.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      if (event.key === ' ') {
+        event.preventDefault();
+      }
+      copyRoomId();
+    }
   });
 
   leaveRoomBtn.addEventListener('click', () => {
