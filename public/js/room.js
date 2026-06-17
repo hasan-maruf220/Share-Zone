@@ -266,7 +266,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   roomIdBadge.addEventListener('click', copyRoomId);
   roomIdBadge.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
+      if (event.key === ' ') {
+        event.preventDefault();
+      }
       copyRoomId();
     }
   });
