@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Set UI
   roomIdDisplay.textContent = roomId;
+  document.title = `Room ${roomId} | Sharing Zone`;
   if (isCreator) {
     closeRoomBtn.classList.remove('hidden');
   }
