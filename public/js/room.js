@@ -246,10 +246,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // --- Room Controls ---
-  roomIdBadge.addEventListener('click', () => {
+  const copyRoomId = () => {
     navigator.clipboard.writeText(roomId).then(() => {
       showToast('Room ID copied to clipboard!', false);
     });
+  };
+
+  roomIdBadge.addEventListener('click', copyRoomId);
+  roomIdBadge.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      copyRoomId();
+    }
   });
 
   leaveRoomBtn.addEventListener('click', () => {

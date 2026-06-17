@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Room | Antigravity</title>
+  <title>Room | Sharing Zone</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
   <nav class="room-nav glass-panel">
     <div class="room-info">
       <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-      <div id="roomIdBadge" class="room-id-badge" title="Click to copy">
+      <div id="roomIdBadge" class="room-id-badge" title="Click to copy" role="button" tabindex="0" aria-label="Copy room ID">
         <span id="roomIdDisplay">Loading...</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       </div>
@@ -66,7 +66,7 @@
       <div id="uploadZone" class="upload-zone">
         <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
         <p>Drag & drop files here<br>or click to browse</p>
-        <span style="font-size: 0.75rem; color: var(--text-muted);">Max 15MB. Docs, Images, ZIP only.</span>
+        <span class="upload-hint">Max 15MB. Docs, Images, ZIP only.</span>
         <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.pptx,.ppt,.txt,.jpg,.jpeg,.png,.gif,.webp,.zip">
       </div>
 
@@ -77,7 +77,7 @@
   </main>
 
   <!-- Error Toast -->
-  <div id="toast" class="error-msg hidden" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);"></div>
+  <div id="toast" class="error-msg toast-msg hidden" role="status" aria-live="polite"></div>
 
   <footer class="site-footer">
     <p class="footer-name">Maruf Hossain</p>
