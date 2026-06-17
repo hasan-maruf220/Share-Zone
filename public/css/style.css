@@ -11,7 +11,6 @@
   --success-color: #10b981;
   --focus-ring: rgba(129, 140, 248, 0.45);
   --surface-strong: rgba(10, 14, 25, 0.85); /* Elevated chip/pill surfaces on top of glass panels */
-  --chat-column-size: 1.6fr;
   --glass-blur: blur(16px);
   --font-main: 'Outfit', sans-serif;
 }
@@ -359,7 +358,7 @@ input[type="text"]:focus-visible {
 
 .workspace-grid {
   display: grid;
-  grid-template-columns: minmax(280px, var(--chat-column-size)) minmax(320px, 1fr);
+  grid-template-columns: minmax(280px, 1.6fr) minmax(320px, 1fr);
   gap: 1rem;
   flex: 1;
   min-height: 0;
@@ -705,7 +704,7 @@ input[type="text"]:focus-visible {
 @media (max-width: 900px) {
   .workspace-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, minmax(340px, auto));
+    grid-template-rows: repeat(2, auto);
     height: auto;
   }
   

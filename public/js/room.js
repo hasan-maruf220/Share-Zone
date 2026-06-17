@@ -170,7 +170,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const res = await fetch(`/api/files/${roomId}`);
       const files = await res.json();
       if (res.ok) {
-        filesList.querySelectorAll('.file-item').forEach((item) => item.remove());
+        filesList.innerHTML = '';
+        if (filesEmptyState) {
+          filesList.appendChild(filesEmptyState);
+        }
         files.forEach(appendFile);
         if (filesEmptyState) {
           filesEmptyState.classList.toggle('hidden', files.length > 0);
