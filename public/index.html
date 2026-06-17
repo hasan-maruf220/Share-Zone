@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharing Zone </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="home-body">
+  <div class="background-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="home-container glass-panel">
+    <header class="home-header">
+      <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+          </path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <h1>Sharing Zone</h1>
+      </div>
+      <p class="subtitle">Real-time, self-destructing Sharing and chatting.</p>
+    </header>
+
+    <div class="auth-section">
+      <div class="input-group">
+        <label for="username">Your Name</label>
+        <input type="text" id="username" placeholder="e.g. Alice" autocomplete="off" required>
+      </div>
+
+      <div class="actions">
+        <div class="action-card create-card">
+          <h3>New Space</h3>
+          <p>Create a temporary room to share files and chat.</p>
+          <button id="createRoomBtn" class="btn btn-primary">Create Room</button>
+        </div>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="action-card join-card">
+          <h3>Join Space</h3>
+          <p>Have a room code? Enter it below.</p>
+          <div class="join-input-group">
+            <input type="text" id="roomIdInput" placeholder="Room ID" maxlength="6" autocomplete="off">
+            <button id="joinRoomBtn" class="btn btn-secondary">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorMsg" class="error-msg hidden"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-name">Maruf Hossain</p>
+    <p class="footer-info">Daffodil International University</p>
+    <p class="footer-info">Department of Software Engineering</p>
+  </footer>
+
+  <script src="/js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sharing-zone
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: ~18.0.0
+      # You will need to add these two variables directly in the Render Dashboard
+      # because putting secrets in this file is not secure if you push to GitHub:
+      # - key: SUPABASE_URL
+      #   sync: false
+      # - key: SUPABASE_SERVICE_KEY
+      #   sync: false
