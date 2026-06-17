@@ -10,6 +10,7 @@
   --danger-color: #ef4444;
   --success-color: #10b981;
   --focus-ring: rgba(129, 140, 248, 0.45);
+  --surface-strong: rgba(10, 14, 25, 0.85);
   --glass-blur: blur(16px);
   --font-main: 'Outfit', sans-serif;
 }
@@ -254,6 +255,7 @@ input[type="text"]:focus-visible {
 .action-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -291,7 +293,7 @@ input[type="text"]:focus-visible {
 
 .divider span {
   position: relative;
-  background: rgba(10, 14, 25, 0.85);
+  background: var(--surface-strong);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   padding: 0.2rem 0.9rem;
@@ -542,8 +544,7 @@ input[type="text"]:focus-visible {
   gap: 0.75rem;
 }
 
-.files-list:empty::before {
-  content: 'No files yet. Drop a file above to share with your room.';
+.files-empty-state {
   color: var(--text-muted);
   font-size: 0.86rem;
   text-align: center;
@@ -654,7 +655,7 @@ input[type="text"]:focus-visible {
   z-index: 1000;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   margin-top: 0;
-  max-width: min(90vw, 320px);
+  max-width: min(92vw, 420px);
 }
 
 /* Animations */

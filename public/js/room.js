@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const uploadZone = document.getElementById('uploadZone');
   const fileInput = document.getElementById('fileInput');
   const filesList = document.getElementById('filesList');
+  const filesEmptyState = document.getElementById('filesEmptyState');
   const toast = document.getElementById('toast');
 
   // Set UI
@@ -158,6 +159,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       </a>
     `;
     filesList.appendChild(div);
+    if (filesEmptyState) {
+      filesEmptyState.classList.add('hidden');
+    }
   };
 
   const loadFiles = async () => {
@@ -165,8 +169,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const res = await fetch(`/api/files/${roomId}`);
       const files = await res.json();
       if (res.ok) {
-        filesList.innerHTML = '';
+        filesList.querySelectorAll('.file-item').forEach((item) => item.remove());
         files.forEach(appendFile);
+        if (filesEmptyState) {
+          filesEmptyState.classList.toggle('hidden', files.length > 0);
+        }
       }
     } catch (err) {
       console.error('Failed to load files', err);
